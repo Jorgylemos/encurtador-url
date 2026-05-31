@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class UrlShortEncoder {
 
 	@Bean
-	String generateUrlHash(String url) {
+	public String generateUrlHash(String url) {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			String hashed = digest.digest(url.getBytes(StandardCharsets.UTF_8)).toString();
