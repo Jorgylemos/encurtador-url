@@ -15,6 +15,8 @@ CREATE TABLE users(
 CREATE TABLE shortners(
 	id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
 	original_url VARCHAR(60) NOT NULL,
+	custom_alias VARCHAR(60),
+	hash CHAR(8),
 	creation_date TIMESTAMP DEFAULT NOW(),
 	expiration_date TIMESTAMP,
 	user_id UUID NOT NULL,

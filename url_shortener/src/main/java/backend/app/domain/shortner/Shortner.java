@@ -26,6 +26,8 @@ public class Shortner {
 	UUID id;
 
 	String originalUrl;
+	String customAlias;
+	String hash;
 	Date creationDate;
 	Date expirationDate;
 }

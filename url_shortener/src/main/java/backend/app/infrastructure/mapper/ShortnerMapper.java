@@ -12,19 +12,22 @@ import backend.app.domain.shortner.ShortnerResponseDTO;
 public interface ShortnerMapper {
 
 	@Mappings({
-		@Mapping(target = "id", ignore = true),
-		@Mapping(target = "originalUrl", source = "originalUrl"),
-		@Mapping(target = "creationDate", ignore = true),
-		@Mapping(target = "expirationDate", ignore = true)
+			@Mapping(target = "id", ignore = true),
+			@Mapping(target = "dto.originalUrl", source = "originalUrl"),
+			@Mapping(target = "dto.customAlias", source = "customAlias"),
+			@Mapping(target = "dto.hash", source = "hash"),
+			@Mapping(target = "creationDate", ignore = true),
+			@Mapping(target = "expirationDate", ignore = true)
 	})
 
 	Shortner toEntity(ShortnerRequestDTO shortner);
 
-
 	@Mappings({
-		@Mapping(target = "originalUrl", source = "originalUrl"),
-		@Mapping(target = "creationDate", source = "creationDate"),
-		@Mapping(target = "expirationDate", source = "expirationDate")
+			@Mapping(target = "originalUrl", source = "originalUrl"),
+			@Mapping(target = "customAlias", source = "customAlias"),
+			@Mapping(target = "hash", source = "hash"),
+			@Mapping(target = "creationDate", source = "creationDate"),
+			@Mapping(target = "expirationDate", source = "expirationDate")
 	})
 
 	ShortnerResponseDTO toDto(Shortner dto);
