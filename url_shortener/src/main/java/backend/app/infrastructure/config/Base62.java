@@ -5,12 +5,17 @@ import java.util.function.BiFunction;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import static java.util.Objects.requireNonNull;
 
+@Configuration
 public class Base62 {
 	private static final String DIGITS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	private static final BigInteger BASE = BigInteger.valueOf(DIGITS.length());
 
+	@Bean
 	static String encode(BigInteger number) {
 
 		if (number.compareTo(BigInteger.ZERO) < 0) {
@@ -29,10 +34,12 @@ public class Base62 {
 		return (result.isEmpty() ? DIGITS.substring(0, 1) : result.toString());
 	}
 
+	@Bean
 	static BigInteger decode(final String string) {
 		return decode(string, 128);
 	}
 
+	@Bean
 	static BigInteger decode(final String string, int bitLimit) {
 		requireNonNull(string, "String decodificada não pode ser nula");
 
