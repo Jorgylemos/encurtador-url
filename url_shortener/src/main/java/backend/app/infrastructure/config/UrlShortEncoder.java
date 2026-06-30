@@ -21,8 +21,6 @@ public class UrlShortEncoder {
 
 			return encoder.encodeToString(digest.digest());
 
-			String hashed = digest.digest(url.getBytes(StandardCharsets.UTF_8)).toString();
-
 		} catch (NoSuchAlgorithmException exception) {
 
 			System.err.println(exception);
